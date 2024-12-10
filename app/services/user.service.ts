@@ -19,4 +19,8 @@ export class UserService {
   async createUser(user: { user_code: string }): Promise<User | undefined> {
     return this.apiService.post<User, typeof user>("/users", user);
   }
+
+  async loginUser(user: { user_code: string }): Promise<User | undefined> {
+    return this.apiService.post<User, typeof user>("/users/login", user);
+  }
 }

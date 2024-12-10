@@ -13,3 +13,7 @@ export const getUserById = async (id: string) => {
 export const createUser = async (user: { user_code: string }) => {
   return await userService.createUser(user);
 };
+
+export const loginUser = async (user: { user_code: string }) => {
+  return await userService.loginUser(user);
+};
