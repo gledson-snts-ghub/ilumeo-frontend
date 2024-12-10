@@ -1,6 +1,26 @@
+import { useFetcher } from "@remix-run/react";
 import { FiKey, FiLogIn, FiUserPlus } from "react-icons/fi";
+import { useAppDispatch } from "../hooks";
+import { setLoginCode } from "../redux/slices/loginSlice";
 
 export function LoginForm() {
+  const dispatch = useAppDispatch();
+  const fetcher = useFetcher();
+
+  const handleOnClickCreateUser = () => {
+    fetcher.submit(
+      { type: "createUser" },
+      {
+        method: "POST",
+        encType: "application/json",
+      }
+    );
+  };
+
+  const handleOnInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(setLoginCode(event.target.value));
+  };
+
   return (
     <div className="flex flex-col gap-8 p-6 w-full max-w-md mx-auto">
       <header className="text-center">
@@ -19,6 +39,7 @@ export function LoginForm() {
         <div className="relative">
           <FiKey className="absolute left-2 top-1/2 transform -translate-y-1/2 text-white text-2xl" />
           <input
+            onChange={handleOnInputChange}
             type="text"
             id="userCode"
             placeholder="Digite aqui"
@@ -31,7 +52,10 @@ export function LoginForm() {
           <FiLogIn className="text-lg" />
           Entrar
         </button>
-        <button className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-orange text-dark font-bold text-sm rounded-md hover:bg-opacity-80 btn-hover-effect">
+        <button
+          onClick={handleOnClickCreateUser}
+          className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-orange text-dark font-bold text-sm rounded-md hover:bg-opacity-80 btn-hover-effect"
+        >
           <FiUserPlus className="text-lg" />
           Criar conta
         </button>

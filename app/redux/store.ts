@@ -1,8 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
-import tooltipReducer from "./slices/tooltipSlice";
+import loginReducer from "./slices/loginSlice";
 
-export const store = configureStore({
+const store = configureStore({
   reducer: {
-    tooltip: tooltipReducer,
+    login: loginReducer,
   },
 });
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
+
+export { store };

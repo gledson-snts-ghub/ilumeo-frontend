@@ -1,4 +1,3 @@
-import type { LinksFunction } from "@remix-run/node";
 import {
   Links,
   Meta,
@@ -7,10 +6,9 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import { Provider } from "react-redux";
-import "~/tailwind.css";
+import { ClientOnly } from "remix-utils/client-only";
 import { store } from "./redux/store";
-
-export const links: LinksFunction = () => [];
+import "./tailwind.css";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -33,7 +31,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
 export default function App() {
   return (
     <Provider store={store}>
-      <Outlet />
+      <Layout>
+        <ClientOnly fallback={null}>{() => <Outlet />}</ClientOnly>
+      </Layout>
     </Provider>
   );
 }
