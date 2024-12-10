@@ -13,13 +13,13 @@ export const action: ActionFunction = async ({
 
     const response = await createUser({ user_code });
 
-    return redirect(`/users/${response?.id}`);
+    return redirect(`/${response?.id}`);
   }
 
   if (dataJson.type === "login") {
     const response = await loginUser({ user_code: dataJson.user_code });
     console.log(response);
-    return redirect(`users/${response?.id}`);
+    return redirect(`${response?.id}`);
   }
 
   return {
