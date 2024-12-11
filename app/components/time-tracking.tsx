@@ -50,7 +50,7 @@ export function TimeTracking() {
                         <FiEdit />
                     </Button>
                 </section>
-                <main>
+                <main className="h-80 lg:h-60 sm:h-48">
                     <TimeList />
                 </main>
             </main>

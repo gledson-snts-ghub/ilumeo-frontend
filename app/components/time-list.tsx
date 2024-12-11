@@ -11,7 +11,7 @@ export const TimeList = () => {
     ) : (
         <section className="flex flex-col gap-4">
             <p className="font-bold">Registros:</p>
-            <ul className="h-32 lg:h-60 sm:h-48 flex flex-col gap-4 overflow-scroll overflow-x-hidden custom-scrollbar scroll-padding-right">
+            <ul className="flex flex-col gap-4 overflow-scroll overflow-x-hidden custom-scrollbar scroll-padding-right">
                 {times.map((time) => (
                     <li
                         key={time.id}
