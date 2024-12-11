@@ -6,15 +6,21 @@ import { getUserById } from "../api/user";
 export const loader = async ({ params }: LoaderFunctionArgs) => {
     const { id } = params;
 
-    const user = await getUserById(id || "");
-    const times = await getTimesByUserId(id || "");
+    const [user, times] = await Promise.all([
+        await getUserById(id || ""),
+        await getTimesByUserId(id || ""),
+    ]);
 
-    if (user) {
+    if (user && times) {
+        console.log({ user, times });
         return {
             user,
             times,
         };
     }
+    return {
+        error: true,
+    };
 };
 
 export default function Index() {
