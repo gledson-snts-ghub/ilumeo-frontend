@@ -8,7 +8,7 @@ export const loader = async ({ params }: LoaderFunctionArgs) => {
 
     const [user, times] = await Promise.all([
         await getUserById(id || ""),
-        await getTimesByUserId(id || ""),
+        (await getTimesByUserId(id || "")) || [],
     ]);
 
     if (user && times) {
