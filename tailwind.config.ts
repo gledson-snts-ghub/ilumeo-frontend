@@ -15,7 +15,7 @@ export default {
     ],
     theme: {
         extend: {
-            colors: colors,
+            colors,
             backgroundImage: {
                 gradient: "linear-gradient(0deg, #476991 0%, #151f2b 100%)",
             },
@@ -31,6 +31,19 @@ export default {
                     transitionProperty: "all",
                     transitionDuration: "300ms",
                     transitionTimingFunction: "ease-in-out",
+                },
+                ".custom-scrollbar::-webkit-scrollbar": {
+                    width: "16px",
+                },
+                ".custom-scrollbar::-webkit-scrollbar-thumb": {
+                    backgroundColor: colors.blueDark,
+                    borderRadius: "4px",
+                },
+                ".custom-scrollbar::-webkit-scrollbar-track": {
+                    backgroundColor: "none",
+                },
+                ".scroll-padding-right::has(::-webkit-scrollbar)": {
+                    "padding-right": "16px",
                 },
             });
         },

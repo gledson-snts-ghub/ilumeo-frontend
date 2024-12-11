@@ -14,7 +14,7 @@ export function TimeTracking() {
     };
 
     return (
-        <div className="flex flex-col gap-6 mx-8 w-full max-w-lg">
+        <div className="flex flex-col gap-6 w-full max-w-lg">
             <header className="flex justify-center">
                 <h1 className="text-gray text-6xl font-extrabold">ilumeo</h1>
             </header>
