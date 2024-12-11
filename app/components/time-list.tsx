@@ -11,17 +11,17 @@ export const TimeList = () => {
     ) : (
         <section className="flex flex-col gap-4">
             <p className="font-bold">Registros:</p>
-            <ul className="flex flex-col gap-4 overflow-scroll overflow-x-hidden custom-scrollbar scroll-padding-right">
+            <ul className="flex flex-col gap-4">
                 {times.map((time) => (
                     <li
                         key={time.id}
-                        className="flex justify-between w-full bg-dark h-min px-5 py-3 rounded-lg"
+                        className="flex justify-between w-full bg-dark h-min px-5 py-3 rounded-lg flex-wrap"
                     >
-                        <div className="flex justify-between items-center gap-4">
+                        <div className="flex justify-between items-center gap-4 flex-wrap">
                             <FiCalendar className="text-xl" />
                             <span className="font-bold">{time.date}</span>
                         </div>
-                        <div className="flex justify-between items-center gap-4">
+                        <div className="flex justify-between items-center gap-4 flex-wrap">
                             <span className="font-bold">
                                 {time.hours_worked}
                             </span>

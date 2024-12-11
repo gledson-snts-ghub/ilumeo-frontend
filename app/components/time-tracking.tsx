@@ -14,7 +14,7 @@ export function TimeTracking() {
     };
 
     return (
-        <div className="flex flex-col gap-6 w-full max-w-lg">
+        <div className="flex flex-col justify-between w-full lg:max-w-lg">
             <header className="flex justify-center">
                 <h1 className="text-gray text-6xl font-extrabold">ilumeo</h1>
             </header>
@@ -50,7 +50,7 @@ export function TimeTracking() {
                         <FiEdit />
                     </Button>
                 </section>
-                <main className="h-80 lg:h-60 sm:h-48">
+                <main>
                     <TimeList />
                 </main>
             </main>
