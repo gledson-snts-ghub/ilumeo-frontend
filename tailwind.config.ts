@@ -19,6 +19,9 @@ export default {
             backgroundImage: {
                 gradient: "linear-gradient(0deg, #476991 0%, #151f2b 100%)",
             },
+            boxShadow: {
+                custom: "0 4px 8px 0 rgba(0, 0, 0, 0.25)",
+            },
         },
     },
     plugins: [

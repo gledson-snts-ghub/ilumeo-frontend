@@ -2,8 +2,9 @@ import { useFetcher } from "@remix-run/react";
 import { FiKey, FiLogIn, FiUserPlus } from "react-icons/fi";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { setLoginCode } from "../redux/slices/loginSlice";
+import { Button } from "./button";
 
-export function LoginForm() {
+export const LoginForm = () => {
     const dispatch = useAppDispatch();
     const fetcher = useFetcher();
     const user_code = useAppSelector((state) => state.login.code);
@@ -25,6 +26,7 @@ export function LoginForm() {
     };
 
     const handleLogin = (user_code: string) => {
+        console.log("click");
         fetcher.submit(
             { type: "login", user_code },
             {
@@ -56,26 +58,20 @@ export function LoginForm() {
                         type="text"
                         id="userCode"
                         placeholder="Digite aqui"
-                        className="w-full px-10 py-2 bg-dark text-white text-lg font-bold rounded-md focus:outline-none focus:ring-2 focus:ring-orange"
+                        className="w-full px-10 py-2 bg-dark text-white text-lg font-bold rounded-md focus:outline-none focus:ring-2 focus:ring-orange focus:bg-dark"
                     />
                 </div>
             </main>
             <footer className="flex flex-col md:flex-row gap-10">
-                <button
-                    onClick={() => handleLogin(user_code)}
-                    className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-orange text-dark font-bold text-sm rounded-md hover:bg-opacity-80 btn-hover-effect"
-                >
+                <Button onClick={() => handleLogin(user_code)}>
                     <FiLogIn className="text-lg" />
                     Entrar
-                </button>
-                <button
-                    onClick={handleOnClickCreateUser}
-                    className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-orange text-dark font-bold text-sm rounded-md hover:bg-opacity-80 btn-hover-effect"
-                >
+                </Button>
+                <Button onClick={handleOnClickCreateUser}>
                     <FiUserPlus className="text-lg" />
                     Criar conta
-                </button>
+                </Button>
             </footer>
         </div>
     );
-}
+};
