@@ -1,3 +1,4 @@
+import { LinksFunction } from "@remix-run/node";
 import {
   Links,
   Meta,
@@ -8,7 +9,13 @@ import {
 import { Provider } from "react-redux";
 import { ClientOnly } from "remix-utils/client-only";
 import { store } from "./redux/store";
-import "./tailwind.css";
+
+export const links: LinksFunction = () => [
+  {
+    rel: "stylesheet",
+    href: "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap",
+  },
+];
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (

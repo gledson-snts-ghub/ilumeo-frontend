@@ -5,7 +5,12 @@ interface AddComponents {
 }
 
 export default {
-  content: ["./app/**/{**,.client,.server}/**/*.{js,jsx,ts,tsx}"],
+  content: [
+    "./app/**/*.{js,jsx,ts,tsx}",
+    "./app/entry.client.tsx",
+    "./app/entry.server.tsx",
+    "./app/root.tsx",
+  ],
   theme: {
     extend: {
       colors: {
