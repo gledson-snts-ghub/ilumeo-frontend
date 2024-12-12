@@ -9,7 +9,7 @@ export const TimeList = () => {
     return !times.length ? (
         <EmptyListWarning />
     ) : (
-        <section className="flex flex-col gap-4">
+        <main className={`h-full`}>
             <p className="font-bold">Registros:</p>
             <ul className="flex flex-col gap-4">
                 {times.map((time) => (
@@ -30,6 +30,6 @@ export const TimeList = () => {
                     </li>
                 ))}
             </ul>
-        </section>
+        </main>
     );
 };

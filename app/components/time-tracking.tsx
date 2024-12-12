@@ -14,11 +14,11 @@ export function TimeTracking() {
     };
 
     return (
-        <div className="flex flex-col justify-between w-full lg:max-w-lg">
+        <div className="flex flex-col w-full lg:max-w-lg gap-10 pt-10 pb-10 lg:pt-24 lg:pb-24">
             <header className="flex justify-center">
                 <h1 className="text-gray text-6xl font-extrabold">ilumeo</h1>
             </header>
-            <main className="flex flex-col gap-8 p-8 bg-gradient-to-b from-blueDark to-dark text-white rounded-lg shadow-custom">
+            <main className="flex flex-col gap-8 p-8 bg-gradient-to-b from-blueDark to-dark text-white rounded-lg shadow-custom h-full">
                 <header className="flex justify-between items-center flex-wrap">
                     <FiArrowLeftCircle
                         color={colors.dark}
@@ -50,9 +50,7 @@ export function TimeTracking() {
                         <FiEdit />
                     </Button>
                 </section>
-                <main>
-                    <TimeList />
-                </main>
+                <TimeList />
             </main>
         </div>
     );
