@@ -1,4 +1,4 @@
-import { useFetcher } from "@remix-run/react";
+import { useFetcher, useNavigate, useParams } from "@remix-run/react";
 import { FiXCircle } from "react-icons/fi";
 import { useAppDispatch, useAppSelector } from "~/hooks";
 import { setTimeChoosed } from "../redux/slices/timeSlice";
@@ -8,6 +8,13 @@ export const TimeForm = () => {
     const dispatch = useAppDispatch();
     const timeChoosed = useAppSelector((state) => state.timeChoosed);
     const fetcher = useFetcher();
+    const params = useParams();
+
+    const navigate = useNavigate();
+
+    const goBack = () => {
+        navigate(`/${params.id}`);
+    };
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { id, value } = event.currentTarget;
@@ -76,7 +83,10 @@ export const TimeForm = () => {
                 </section>
             </section>
             <section className="flex items-start pl-6">
-                <FiXCircle className="text-dark text-4xl" />
+                <FiXCircle
+                    className="text-dark text-4xl cursor-pointer"
+                    onClick={goBack}
+                />
             </section>
         </main>
     );
