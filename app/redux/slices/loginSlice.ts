@@ -8,7 +8,7 @@ const initialState: LoginState = {
     code: "",
 };
 
-const loginSlice = createSlice({
+const timeSlice = createSlice({
     name: "login",
     initialState,
     reducers: {
@@ -18,5 +18,5 @@ const loginSlice = createSlice({
     },
 });
 
-export const { setLoginCode } = loginSlice.actions;
-export default loginSlice.reducer;
+export const { setLoginCode } = timeSlice.actions;
+export default timeSlice.reducer;

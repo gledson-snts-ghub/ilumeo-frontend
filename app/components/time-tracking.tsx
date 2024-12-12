@@ -13,6 +13,10 @@ export function TimeTracking() {
         navigate("/");
     };
 
+    const goRegister = () => {
+        navigate(`/${user.id}/time-register`);
+    };
+
     return (
         <div className="flex flex-col w-full lg:max-w-lg gap-10 pt-10 pb-10 lg:pt-20 lg:pb-20">
             <header className="flex justify-center">
@@ -43,7 +47,10 @@ export function TimeTracking() {
                     <span className="font-bold">Tempo total de hoje</span>
                 </section>
                 <section>
-                    <Button className="flex-1 flex items-center justify-center gap-2 py-3 bg-orange text-dark font-bold text-2xl rounded-md hover:bg-opacity-80 btn-hover-effect w-full">
+                    <Button
+                        onClick={goRegister}
+                        className="flex-1 flex items-center justify-center gap-2 py-3 bg-orange text-dark font-bold text-2xl rounded-md hover:bg-opacity-80 btn-hover-effect w-full"
+                    >
                         <p className="xl:text-xl lg:text-lg sm:text-sm text-sm">
                             Registrar Horário
                         </p>

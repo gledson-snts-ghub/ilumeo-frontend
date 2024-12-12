@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import loginReducer from "./slices/loginSlice";
+import timeReducer from "./slices/timeSlice";
 
 const store = configureStore({
     reducer: {
         login: loginReducer,
+        timeChoosed: timeReducer,
     },
 });
 
