@@ -9,7 +9,7 @@ export const TimeList = () => {
     return !times.length ? (
         <EmptyListWarning />
     ) : (
-        <main className={`h-full`}>
+        <main className="flex flex-col gap-4 overflow-y-scroll">
             <p className="font-bold">Registros:</p>
             <ul className="flex flex-col gap-4">
                 {times.map((time) => (
