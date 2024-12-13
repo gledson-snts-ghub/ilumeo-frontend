@@ -46,10 +46,3 @@ export const validateAndFormatTime = (start: string, end: string) => {
         date: formattedDate,
     };
 };
-
-const result = validateAndFormatTime("07:40", "06:30");
-if (result.error) {
-    console.log(result.error);
-} else {
-    console.log(result);
-}
