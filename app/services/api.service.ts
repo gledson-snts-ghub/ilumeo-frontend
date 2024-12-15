@@ -6,7 +6,7 @@ export class ApiService {
     constructor() {
         this.api = axios.create({
             baseURL:
-                process.env.DEV_API_BASE_URL ||
+                process.env.API_BASE_URL ||
                 "https://starting-docker.onrender.com",
             headers: {
                 "Content-Type": "application/json",
