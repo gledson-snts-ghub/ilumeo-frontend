@@ -18,6 +18,7 @@ export const TimeForm = () => {
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { id, value } = event.currentTarget;
+
         if (id && value)
             dispatch(
                 setTimeChoosed({

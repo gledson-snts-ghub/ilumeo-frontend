@@ -1,49 +1,31 @@
-export const calculateTimeDifference = (start: string, end: string) => {
-    const timeRegex = /^([0-9]{2})h:([0-9]{2})m$/;
-    const validateTimeFormat = (time: string) => timeRegex.test(time);
+import { differenceInMinutes, parse } from "date-fns";
 
-    if (!validateTimeFormat(start)) {
-        return {
-            error: "Formato de horário de início inválido. Use o formato hh:mm.",
-        };
+type CalculateTimeDifference = {
+    timeDifference: string;
+    isInvalid: boolean;
+};
+
+export const calculateTimeDifference = (
+    start: string,
+    end: string
+): CalculateTimeDifference => {
+    try {
+        const startDate = parse(start, "HH:mm", new Date());
+        const endDate = parse(end, "HH:mm", new Date());
+
+        if (startDate.getTime() >= endDate.getTime()) {
+            throw new Error(
+                "O horário de início não pode ser maior ou igual ao horário de término."
+            );
+        }
+
+        const diffInMinutes = differenceInMinutes(endDate, startDate);
+
+        const hours = Math.floor(diffInMinutes / 60);
+        const minutes = diffInMinutes % 60;
+
+        return { timeDifference: `${hours}h:${minutes}m`, isInvalid: false };
+    } catch (error) {
+        return { isInvalid: true, timeDifference: "" };
     }
-
-    if (!validateTimeFormat(end)) {
-        return {
-            error: "Formato de horário de fim inválido. Use o formato hh:mm.",
-        };
-    }
-
-    const startMatch = start.match(timeRegex);
-    const endMatch = end.match(timeRegex);
-
-    if (!startMatch || !endMatch) {
-        return {
-            error: "Erro ao extrair horas e minutos. Verifique os valores informados.",
-        };
-    }
-
-    const startHours = parseInt(startMatch[1], 10);
-    const startMinutes = parseInt(startMatch[2], 10);
-    const endHours = parseInt(endMatch[1], 10);
-    const endMinutes = parseInt(endMatch[2], 10);
-
-    const startInMinutes = startHours * 60 + startMinutes;
-    const endInMinutes = endHours * 60 + endMinutes;
-
-    if (endInMinutes <= startInMinutes) {
-        return {
-            error: "O horário de fim não pode ser menor ou igual ao horário de início.",
-        };
-    }
-
-    const differenceInMinutes = endInMinutes - startInMinutes;
-    const hours = Math.floor(differenceInMinutes / 60);
-    const minutes = differenceInMinutes % 60;
-
-    return {
-        difference: `${String(hours).padStart(2, "0")}h:${String(
-            minutes
-        ).padStart(2, "0")}m`,
-    };
 };
