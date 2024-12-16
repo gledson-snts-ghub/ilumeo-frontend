@@ -1,6 +1,6 @@
+import { LoaderPageUserId } from "->types/loader.pageUserId";
 import { useLoaderData } from "@remix-run/react";
 import { FiCalendar, FiClock } from "react-icons/fi";
-import { LoaderPageUserId } from "->types/loader.pageUserId";
 import { EmptyListWarning } from "./empty-list-warning";
 
 export const TimeList = () => {
@@ -9,7 +9,7 @@ export const TimeList = () => {
     return !times.length ? (
         <EmptyListWarning />
     ) : (
-        <main className="flex flex-col gap-4">
+        <main className="flex flex-col gap-4 overflow-y-auto">
             <p className="font-bold">Registros:</p>
             <ul className="flex flex-col gap-4">
                 {times.map((time) => (

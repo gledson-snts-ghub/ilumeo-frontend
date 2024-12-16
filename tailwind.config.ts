@@ -32,18 +32,11 @@ export default {
                     transitionDuration: "300ms",
                     transitionTimingFunction: "ease-in-out",
                 },
-                ".custom-scrollbar::-webkit-scrollbar": {
-                    width: "16px",
-                },
-                ".custom-scrollbar::-webkit-scrollbar-thumb": {
-                    backgroundColor: colors.blueDark,
-                    borderRadius: "4px",
-                },
-                ".custom-scrollbar::-webkit-scrollbar-track": {
-                    backgroundColor: "none",
-                },
-                ".scroll-padding-right::has(::-webkit-scrollbar)": {
-                    "padding-right": "16px",
+                ".scrollbar-custom": {
+                    // Usando string CSS em vez de objetos
+                    "::-webkit-scrollbar": "width: 8px;",
+                    "::-webkit-scrollbar-thumb": "color: #4a90e2;",
+                    "::-webkit-scrollbar-track": "background-color: #4a90e2;",
                 },
             });
         },

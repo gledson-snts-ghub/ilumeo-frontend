@@ -1,7 +1,7 @@
-import { useLoaderData, useNavigate } from "@remix-run/react";
-import { FiArrowLeftCircle, FiEdit, FiKey } from "react-icons/fi";
 import { colors } from "->theme/colors";
 import { User } from "->types/user";
+import { useLoaderData, useNavigate } from "@remix-run/react";
+import { FiArrowLeftCircle, FiEdit, FiKey } from "react-icons/fi";
 import { Button } from "./button";
 import { TimeList } from "./time-list";
 
@@ -25,7 +25,7 @@ export function TimeTracking() {
             <header className="flex justify-center">
                 <h1 className="text-gray text-6xl font-extrabold">ilumeo</h1>
             </header>
-            <main className="flex flex-col gap-8 p-8 bg-gradient-to-b from-blueDark to-dark text-white rounded-lg shadow-custom h-full">
+            <main className="flex flex-col gap-8 p-8 bg-gradient-to-b from-blueDark to-dark text-white rounded-lg shadow-custom max-h-[45rem] h-full">
                 <header className="flex justify-between items-center flex-wrap">
                     <FiArrowLeftCircle
                         color={colors.dark}
