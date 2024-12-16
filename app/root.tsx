@@ -1,3 +1,4 @@
+import { store } from "->redux/store";
 import { LinksFunction } from "@remix-run/node";
 import {
     Links,
@@ -8,7 +9,6 @@ import {
 } from "@remix-run/react";
 import { Provider } from "react-redux";
 import { ClientOnly } from "remix-utils/client-only";
-import { store } from "./redux/store";
 
 export const links: LinksFunction = () => [
     {

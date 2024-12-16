@@ -1,7 +1,7 @@
+import { useAppDispatch, useAppSelector } from "->hooks";
+import { setLoginCode } from "->redux/slices/loginSlice";
 import { useFetcher } from "@remix-run/react";
 import { FiKey, FiLogIn, FiUserPlus } from "react-icons/fi";
-import { useAppDispatch, useAppSelector } from "~/hooks";
-import { setLoginCode } from "~/redux/slices/loginSlice";
 import { Button } from "./button";
 
 export const LoginForm = () => {

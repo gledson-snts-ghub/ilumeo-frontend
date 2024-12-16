@@ -1,4 +1,4 @@
-import { TimeForm } from "~/components/time-form";
+import { TimeForm } from "->components/time-form";
 
 export const TimeRegisterPage = () => {
     return (

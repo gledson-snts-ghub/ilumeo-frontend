@@ -1,9 +1,9 @@
+import { createTime } from "->api/time";
+import { TimeRegisterPage } from "->pages/time-register";
+import { calculateTimeDifference } from "->utils/calculate-time-difference";
+import { validateAndFormatTime } from "->utils/validate-format-time";
 import { ActionFunctionArgs, redirect } from "@remix-run/node";
 import { format } from "date-fns";
-import { TimeRegisterPage } from "~/pages/time-register";
-import { validateAndFormatTime } from "~/utils/validate-format-time";
-import { createTime } from "../api/time";
-import { calculateTimeDifference } from "../utils/calculate-time-difference";
 
 export const action = async ({ request, params }: ActionFunctionArgs) => {
     const data = await request.json();
@@ -17,14 +17,8 @@ export const action = async ({ request, params }: ActionFunctionArgs) => {
         };
     }
 
-    const { isInvalid, timeDifference } = calculateTimeDifference(
-        time.start,
-        time.end
-    );
+    const timeDifference = calculateTimeDifference(time.start, time.end);
 
-    if (isInvalid) {
-        return { isInvalid };
-    }
     const currentDate = format(new Date(), "yyyy/MM/dd");
 
     const req = {

@@ -1,7 +1,7 @@
+import { useAppDispatch, useAppSelector } from "->hooks";
+import { setTimeChoosed } from "->redux/slices/timeSlice";
 import { useFetcher, useNavigate, useParams } from "@remix-run/react";
 import { FiXCircle } from "react-icons/fi";
-import { useAppDispatch, useAppSelector } from "~/hooks";
-import { setTimeChoosed } from "../redux/slices/timeSlice";
 import { Button } from "./button";
 
 export const TimeForm = () => {

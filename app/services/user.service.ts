@@ -1,4 +1,4 @@
-import { User } from "~/types/user";
+import { User } from "->types/user";
 import { ApiService } from "./api.service";
 
 export class UserService {

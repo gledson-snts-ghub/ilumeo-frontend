@@ -1,6 +1,6 @@
 import { useLoaderData } from "@remix-run/react";
 import { FiCalendar, FiClock } from "react-icons/fi";
-import { LoaderPageUserId } from "../types/loader.pageUserId";
+import { LoaderPageUserId } from "->types/loader.pageUserId";
 import { EmptyListWarning } from "./empty-list-warning";
 
 export const TimeList = () => {

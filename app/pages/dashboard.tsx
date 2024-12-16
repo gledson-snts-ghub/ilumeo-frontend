@@ -1,4 +1,4 @@
-import { TimeTracking } from "../components/time-tracking";
+import { TimeTracking } from "->components/time-tracking";
 
 export default function Dashboard() {
     return (

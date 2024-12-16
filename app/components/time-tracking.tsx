@@ -1,12 +1,15 @@
 import { useLoaderData, useNavigate } from "@remix-run/react";
 import { FiArrowLeftCircle, FiEdit, FiKey } from "react-icons/fi";
-import { colors } from "~/theme/colors";
-import { User } from "~/types/user";
+import { colors } from "->theme/colors";
+import { User } from "->types/user";
 import { Button } from "./button";
 import { TimeList } from "./time-list";
 
 export function TimeTracking() {
-    const { user } = useLoaderData<{ user: User }>();
+    const { user, hours_today } = useLoaderData<{
+        user: User;
+        hours_today: string;
+    }>();
     const navigate = useNavigate();
 
     const goHome = () => {
@@ -43,7 +46,7 @@ export function TimeTracking() {
                     </section>
                 </header>
                 <section>
-                    <h2 className="font-bold text-2xl">0h 00m</h2>
+                    <h2 className="font-bold text-2xl">{hours_today}</h2>
                     <span className="font-bold">Tempo total de hoje</span>
                 </section>
                 <section>

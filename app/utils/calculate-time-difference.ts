@@ -1,31 +1,19 @@
-import { differenceInMinutes, parse } from "date-fns";
+export const calculateTimeDifference = (start: string, end: string): string => {
+    const [startHours, startMinutes] = start.split(":").map(Number);
+    const [endHours, endMinutes] = end.split(":").map(Number);
 
-type CalculateTimeDifference = {
-    timeDifference: string;
-    isInvalid: boolean;
-};
+    const totalStartMinutes = startHours * 60 + startMinutes;
+    const totalEndMinutes = endHours * 60 + endMinutes;
 
-export const calculateTimeDifference = (
-    start: string,
-    end: string
-): CalculateTimeDifference => {
-    try {
-        const startDate = parse(start, "HH:mm", new Date());
-        const endDate = parse(end, "HH:mm", new Date());
-
-        if (startDate.getTime() >= endDate.getTime()) {
-            throw new Error(
-                "O horário de início não pode ser maior ou igual ao horário de término."
-            );
-        }
-
-        const diffInMinutes = differenceInMinutes(endDate, startDate);
-
-        const hours = Math.floor(diffInMinutes / 60);
-        const minutes = diffInMinutes % 60;
-
-        return { timeDifference: `${hours}h:${minutes}m`, isInvalid: false };
-    } catch (error) {
-        return { isInvalid: true, timeDifference: "" };
+    if (totalStartMinutes >= totalEndMinutes) {
+        throw new Error(
+            "O horário de 'start' não pode ser maior ou igual ao de 'end'."
+        );
     }
+
+    const diffMinutes = totalEndMinutes - totalStartMinutes;
+    const hours = Math.floor(diffMinutes / 60);
+    const minutes = diffMinutes % 60;
+
+    return `${hours}h:${minutes}m`;
 };

@@ -1,4 +1,4 @@
-import { Time } from "~/types/time";
+import { Time } from "->types/time";
 import { ApiService } from "./api.service";
 
 export class TimeService {

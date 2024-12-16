@@ -1,8 +1,8 @@
 export interface Time {
     id: string;
     userId: string;
-    date: string; // Data no formato "YYYY-MM-DD"
-    hours_worked: string; // Horas trabalhadas no formato "HH:mm:ss"
+    date: string;
+    hours_worked: string;
 }
 
 export interface CreateTimeDto {

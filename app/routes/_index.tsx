@@ -1,7 +1,7 @@
+import { createUser, loginUser } from "->api/user";
+import IndexPage from "->pages/index";
+import { generateRandomUserCode } from "->utils/generate-random-user-code";
 import { ActionFunction, ActionFunctionArgs, redirect } from "@remix-run/node";
-import { createUser, loginUser } from "~/api/user";
-import IndexPage from "~/pages/index";
-import { generateRandomUserCode } from "~/utils/generate-random-user-code";
 
 export const action: ActionFunction = async ({
     request,
